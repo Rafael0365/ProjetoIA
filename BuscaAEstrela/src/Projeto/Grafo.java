@@ -64,12 +64,9 @@ public class Grafo {
     	Double custoReal = 0.0;
     	ArrayList<Vertice> marcados = new ArrayList<Vertice>();
         ArrayList<Vertice> filhos = new ArrayList<Vertice>();
-        marcados.add(origem);
         System.out.println(origem.getDado());
-        for(int i = 0; i < marcados.get(0).getArestasSaida().size(); i++) {
-        	filhos.add(origem.getArestasSaida().get(i).getFim());
-        }
         Vertice visitado = origem;
+        Vertice proximo;
         while(filhos.size() > 0){
         	// deixa em ordem alfabetica o vetor de filhos
         	ArrayList<String> h = this.darOsDados(filhos);
@@ -87,60 +84,19 @@ public class Grafo {
             	Vertice lado2 = visitado.getArestasSaida().get(1).getFim();
             	if((lado1.getHeuristica() + custoReal) < (lado2.getHeuristica() + custoReal)) {
             		
-            		Vertice proximo = lado1;
+            		proximo = lado1;
             		
             		custoReal = custoReal + visitado.getArestasSaida().get(0).getPeso();
             		
-            		 if (!marcados.contains(proximo)){ //se o vértice ainda não foi marcado
-                     //marca ele como visitado para ele nao ser mais visitado
-              		 marcados.add(visitado);
-                     //imprime o escolhido
-                     
-                      //adiciona o escolhido na lista de filhos
-                      filhos.add(proximo);
-                    
-                       
-                   }
-            		
-            	
-            	
-            	
-            	
-            	
-            	
-            	
-            	
-            	
-            	//descobrir qual é o vetor com menor custo + heuristica
-//            	if((visitado.getArestasSaida().get(i).getFim().getHeuristica() + custoReal) < menor){
-//            		//o menor vira o que foi escolhido
-//            		menor = visitado.getArestasSaida().get(i).getFim().getHeuristica() + custoReal;
-//            		//o que tiver menor custo + heuristica é escolhido como proximo
-//            		Vertice proximo = visitado.getArestasSaida().get(i).getFim();
-//            	
-//            		
-//            		//adicionar o peso da aresta ao custo real
-//                	custoReal = custoReal + visitado.getArestasSaida().get(i).getPeso();
-//                	
-//                	
-//                	 if (!marcados.contains(proximo)){ //se o vértice ainda não foi marcado
-//                         //marca ele como visitado para ele nao ser mais visitado
-//                		 marcados.add(visitado);
-//                         //imprime o escolhido
-//                         
-//                         //adiciona o escolhido na lista de filhos
-//                         filhos.add(proximo);
-//                         for(int j = 0; j < marcados.get(0).getArestasSaida().size(); j++) {
-//                         	filhos.add(visitado.getArestasSaida().get(j).getFim());
-//                         }
-//                         
-//                     }
+            		 
             	}else {
-            		Vertice proximo = lado2;
+            		proximo = lado2;
             		
             		custoReal = custoReal + visitado.getArestasSaida().get(1).getPeso();
             		
-            		 if (!marcados.contains(proximo)){ //se o vértice ainda não foi marcado
+            		
+            	}
+				if (!marcados.contains(proximo)){ //se o vértice ainda não foi marcado
                      //marca ele como visitado para ele nao ser mais visitado
               		 marcados.add(visitado);
                      //imprime o escolhido
@@ -150,9 +106,6 @@ public class Grafo {
                     
                        
                    }
-            		
-            		
-            	}
             	
             
             filhos.remove(0);
