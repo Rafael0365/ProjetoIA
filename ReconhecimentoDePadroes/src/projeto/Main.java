@@ -35,7 +35,7 @@ public class Main {
 //		for(int i = 0; tacas.size() > i;i++) {
 //			System.out.println("espessura:" + formatador.format(tacas.get(i).getEspessura()) +"     forma:" + formatador.format(tacas.get(i).getForma()));
 //		}(testeTacas.get(i).getEspessura() - prototipoCopo.getEspessura())+(testeTacas.get(i).getForma() - prototipoTaca.getForma()
-		
+// ((testeTacas.get(i).getEspessura() - prototipoCopo.getEspessura())+(testeTacas.get(i).getForma() - prototipoTaca.getForma()))/((testeTacas.get(i).getEspessura() + prototipoCopo.getEspessura())+(testeTacas.get(i).getForma() + prototipoTaca.getForma()))		
 		//a partir dos dados construir bases de teste (todas as segundas metades dos dados)
 		ArrayList<Taca> testeTacas = new ArrayList<Taca>();
 		ArrayList<Copo> testeCopos = new ArrayList<Copo>();
