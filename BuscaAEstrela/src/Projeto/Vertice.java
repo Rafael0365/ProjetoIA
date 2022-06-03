@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Vertice {
 	private String dado;
 	private Double heuristica;
-	private ArrayList<Aresta> arestasEntrada;
-	private ArrayList<Aresta> arestasSaida;
+	private ArrayList<Aresta> arestasEntrada = new ArrayList<Aresta>();
+	private ArrayList<Aresta> arestasSaida = new ArrayList<Aresta>();;
 	
 	public Vertice(String valor, Double heuristica) {
 		this.dado = valor;
@@ -36,7 +36,7 @@ public class Vertice {
 	}
 	
 	public void adicionarArestaSaida(Aresta aresta) {
-		this.arestasEntrada.add(aresta);
+		this.arestasSaida.add(aresta);
 	}
 
 	public ArrayList<Aresta> getArestaEntrada() {
@@ -48,11 +48,11 @@ public class Vertice {
 	}
 
 	public ArrayList<Aresta> getArestasSaida() {
-		return arestasEntrada;
+		return arestasSaida;
 	}
 
 	public void setArestaSaida(ArrayList<Aresta> arestaSaida) {
-		this.arestasEntrada = arestaSaida;
+		this.arestasSaida = arestaSaida;
 	}
 	
 	

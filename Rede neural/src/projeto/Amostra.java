@@ -1,6 +1,7 @@
 package projeto;
 
 public class Amostra {
+	//objeto responsavel por armazenar os dados da amostra, sendo esses (x1, x2 e a saida desejada), e seus gets e sets
 	private int x1;
 	private int x2;
 	private int saidaDesejada;

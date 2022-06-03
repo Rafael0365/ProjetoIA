@@ -56,60 +56,71 @@ public class Grafo {
     	return n;
     }
     
-    public void buscaAEstrela(String dadoOrigem, String dadoObjetivo) {
+    public void buscaGulosa(String dadoOrigem, String dadoObjetivo) {
     	//vertices que vao guiar a busca
     	Vertice origem = this.getVertice(dadoOrigem);
     	Vertice objetivo = this.getVertice(dadoObjetivo);
     	//custo real das coisas
     	Double custoReal = 0.0;
-    	ArrayList<Vertice> marcados = new ArrayList<Vertice>();
-        ArrayList<Vertice> filhos = new ArrayList<Vertice>();
-        System.out.println(origem.getDado());
+    	//ArrayList<Vertice> marcados = new ArrayList<Vertice>();
+        //ArrayList<Vertice> filhos = new ArrayList<Vertice>();
+        //a origem vira o primeiro a ser visitado
         Vertice visitado = origem;
-        Vertice proximo;
-        while(filhos.size() > 0){
+        //Vertice proximo;
+        //filhos.add(origem);
+        while(!visitado.equals(objetivo)){
         	// deixa em ordem alfabetica o vetor de filhos
-        	ArrayList<String> h = this.darOsDados(filhos);
-        	Collections.sort(h);
-        	filhos = this.receberOsDados(h);
+        	//ArrayList<String> h = this.darOsDados(filhos);
+        	//Collections.sort(h);
+        	//filhos = this.receberOsDados(h);
         	//seta o visitado e o menor
         	
-        	visitado = filhos.get(0);
+        	//visitado = filhos.get(0);
         	
         	
-        	System.out.println(visitado.getDado());
+        	System.out.println("Visitado: "+visitado.getDado());
         	
            
-            	Vertice lado1 = visitado.getArestasSaida().get(0).getFim();
-            	Vertice lado2 = visitado.getArestasSaida().get(1).getFim();
-            	if((lado1.getHeuristica() + custoReal) < (lado2.getHeuristica() + custoReal)) {
-            		
-            		proximo = lado1;
-            		
-            		custoReal = custoReal + visitado.getArestasSaida().get(0).getPeso();
-            		
-            		 
+            Vertice lado1 = visitado.getArestasSaida().get(0).getFim();
+            Vertice lado2 = visitado.getArestasSaida().get(1).getFim();
+            System.out.println("Lado 1 "+ lado1.getDado()+" heuristica: " + lado1.getHeuristica());
+            System.out.println("Lado 2 "+lado2.getDado()+" heuristica: " + lado2.getHeuristica());
+            	if(lado1.getHeuristica() < lado2.getHeuristica()) {
+            		custoReal = custoReal +  visitado.getArestasSaida().get(0).getPeso();
+            		visitado = lado1;
             	}else {
-            		proximo = lado2;
-            		
-            		custoReal = custoReal + visitado.getArestasSaida().get(1).getPeso();
+            		custoReal = custoReal +  visitado.getArestasSaida().get(1).getPeso();
+            		visitado = lado2;
             		
             		
             	}
-				if (!marcados.contains(proximo)){ //se o vértice ainda não foi marcado
-                     //marca ele como visitado para ele nao ser mais visitado
-              		 marcados.add(visitado);
-                     //imprime o escolhido
-                     
-                      //adiciona o escolhido na lista de filhos
-                      filhos.add(proximo);
-                    
-                       
-                   }
+            	
+            	if(visitado.equals(objetivo)) {
+            		System.out.println("Parabens vc chegou!! Visitado: " + visitado.getDado());
+            	}
+            	
+            	
+                
+            //filhos.add(visitado);
+            //System.out.println(filhos.get(0).getDado());
+            //System.out.println(filhos.get(1).getDado());
+//				if (!marcados.contains(proximo)){ //se o vértice ainda não foi marcado
+//                     //marca ele como visitado para ele nao ser mais visitado
+//              		 marcados.add(visitado);
+//                     //imprime o escolhido
+//                     
+//                      //adiciona o escolhido na lista de filhos
+//                      filhos.add(proximo);
+//                    
+//                       
+//                   }
             	
             
-            filhos.remove(0);
+            //filhos.remove(0);
+           // System.out.println(filhos.get(0).getDado());
+            
         }
+ 
         //
     	System.out.println("Custo real: " + custoReal);
     }

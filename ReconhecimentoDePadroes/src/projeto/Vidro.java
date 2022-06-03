@@ -1,13 +1,24 @@
 package projeto;
 
-public class Jarra {
+public class Vidro {
+	private String tipo;
 	private double espessura;
 	private double forma;
-	public Jarra(double espessura, double forma) {
+	public Vidro(String tipo, double espessura, double forma) {
 		super();
+		this.tipo = tipo;
 		this.espessura = espessura;
 		this.forma = forma;
 	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	public double getEspessura() {
 		return espessura;
 	}
@@ -21,5 +32,5 @@ public class Jarra {
 		this.forma = forma;
 	}
 	
-	
+
 }
