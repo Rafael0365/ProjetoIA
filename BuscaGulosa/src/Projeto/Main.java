@@ -3,7 +3,7 @@ package Projeto;
 public class Main {
 
 	public static void main(String[] args) {
-		//declaraçao do grafo e
+		//declaraçao do grafo e adicionando vertices e arestas
 		Grafo grafo = new Grafo();
 		grafo.adicionarVertice("s", 9.0);
 		grafo.adicionarVertice("a", 5.0);
@@ -43,6 +43,7 @@ public class Main {
 		grafo.adicionarAresta(2.0, "e", "s");
 		grafo.adicionarAresta(2.0, "s", "e");
 		
+		//slicitando a busca (origem, objetivo)
 		grafo.buscaGulosa("s", "t");
 
 	}

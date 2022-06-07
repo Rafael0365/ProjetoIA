@@ -3,18 +3,20 @@ package Projeto;
 import java.util.ArrayList;
 
 public class Vertice {
+	//declaração de dado ("nome" do vertice) heuristica e dois arrays, 
+	//um para todas as arestas que tiverem apontando para o vertice e todas que o vertice aponta para
 	private String dado;
 	private Double heuristica;
 	private ArrayList<Aresta> arestasEntrada = new ArrayList<Aresta>();
 	private ArrayList<Aresta> arestasSaida = new ArrayList<Aresta>();;
-	
+	//construtor da classe
 	public Vertice(String valor, Double heuristica) {
 		this.dado = valor;
 		this.heuristica = heuristica;
 		this.arestasEntrada = new ArrayList <Aresta>();
 		this.arestasEntrada = new ArrayList <Aresta>();
 	}
-
+	//getters e setters das variaveis
 	public String getDado() {
 		return dado;
 	}
@@ -30,7 +32,7 @@ public class Vertice {
 	public void setHeuristica(Double heuristica) {
 		this.heuristica = heuristica;
 	}
-	
+	//metodos responsaveis por manipular os arrays de arestas (usados no metodo adicionarAresta na classe Grafo)
 	public void adicionarArestaEntrada(Aresta aresta) {
 		this.arestasEntrada.add(aresta);
 	}
